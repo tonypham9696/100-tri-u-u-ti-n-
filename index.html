@@ -871,7 +871,7 @@ function tryEmailJS(name,email,oid){
           product_name:'100 Triệu Đầu Tiên',
           amount:'79.000đ'
         };
-        emailjs.send('service_4f0jzbe','temlate_6egfd0i',params)
+        emailjs.send('service_4f0jzbe','template_6egfd0i',params)
           .then(function(res){
             console.log('EmailJS OK',res.status,res.text);
             showToast('📧 Email đã gửi đến '+email);
