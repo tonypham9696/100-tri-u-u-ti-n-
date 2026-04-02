@@ -835,7 +835,7 @@ window.copyMsg=function(){
 
 /* ── FIREBASE + EMAILJS ── */
 // 🔴 THAY LINK EBOOK CỦA BẠN TRÊN VERCEL
-var EBOOK_LINK='https://your-vercel-domain.vercel.app/100-trieu-dau-tien.pdf';
+var EBOOK_LINK='https://100-tri-u-u-ti-n-ob7h.vercel.app/100-trieu-dau-tien.pdf';
 function tryFirebase(name,email,phone,source,oid){
   try{
     var s1=document.createElement('script');
@@ -846,13 +846,12 @@ function tryFirebase(name,email,phone,source,oid){
       s2.onload=function(){
         try{
           if(!firebase.apps.length)firebase.initializeApp({
-            // 🔴 THAY FIREBASE CONFIG CỦA BẠN TỪ FIREBASE CONSOLE
-            apiKey:"YOUR_API_KEY",
-            authDomain:"YOUR_PROJECT.firebaseapp.com",
-            projectId:"YOUR_PROJECT_ID",
-            storageBucket:"YOUR_PROJECT.appspot.com",
-            messagingSenderId:"YOUR_MESSAGING_SENDER_ID",
-            appId:"YOUR_APP_ID"
+            apiKey:"AIzaSyC-TQEPVIsvvftWMkq4LG-IQMQmJ7oGEQo",
+            authDomain:"tungpham-6ebe1.firebaseapp.com",
+            projectId:"tungpham-6ebe1",
+            storageBucket:"tungpham-6ebe1.firebasestorage.app",
+            messagingSenderId:"690431785521",
+            appId:"1:690431785521:web:8f0424ccc9b9cbb85fb310"
           });
           firebase.firestore().collection('orders_100trieu').add({id:oid,name:name,email:email,phone:phone,source:source,product:'100 Triệu Đầu Tiên',amount:79000,status:'paid',downloadLink:EBOOK_LINK,createdAt:new Date().toISOString()});
         }catch(e){}
@@ -871,10 +870,9 @@ function tryEmailJS(name,email,oid){
     se.src='https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
     se.onload=function(){
       try{
-        // 🔴 THAY EMAILJS PUBLIC KEY, SERVICE ID, TEMPLATE ID CỦA BẠN
-        emailjs.init('YOUR_EMAILJS_PUBLIC_KEY');
-        emailjs.send('YOUR_SERVICE_ID','YOUR_TEMPLATE_ID',{to_email:email,to_name:name,order_id:oid,download_link:EBOOK_LINK})
-          .then(function(){showToast('📧 Email đã gửi đến '+email);}).catch(function(){});
+        emailjs.init('pvX97fMNrYufb95rT');
+        emailjs.send('service_4f0jzbe','template_6egfd0i',{to_email:email,to_name:name,order_id:oid,download_link:EBOOK_LINK})
+          .then(function(){showToast('📧 Email đã gửi đến '+email);}).catch(function(){showToast('⚠️ Email gửi thất bại')});
       }catch(e){}
     };
     document.head.appendChild(se);
